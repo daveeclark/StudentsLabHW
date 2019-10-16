@@ -35,29 +35,26 @@ public class Student {
     return examScores.size();
   }
 
-  public String getExamScores() {
+  public double getExamScores() {
     String examAmount = "Exam Scores: ";
-    for (double i = 0; i < examScores; i++) {
-
+    for (int i = 0; i < this.examScores.size(); i++) {
+      examAmount += "Exam " + i + "->" + this.examScores.get(i);
     }
+    return Double.parseDouble(examAmount);
   }
 
   public void addExamScore(double examScore){
     examScores.add(examScore);
   }
 
-
-
   public void setExamScore(int examNumber, double newScore){
-    setExamScore(examNumber, newScore);
+    this.examScores.set(examNumber, newScore);
   }
-
-
 
   public double getAverageExamScore(){
     double sum = 0;
-    for (double avgExamScore : examScores) {
-      sum += avgExamScore;
+    for (int avgExamScore = 0; avgExamScore <this.examScores.size(); avgExamScore++) {
+      sum += this.examScores.get(avgExamScore);
     }
     return sum / examScores.size();
   }
